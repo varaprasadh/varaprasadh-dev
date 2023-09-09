@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
+import { Image } from "@astrojs/image/components";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -10,13 +11,21 @@ const last_posts = posts.slice(0, 3);
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
+   <Image
+      src={"/social_img.jpg"}
+      aspectRatio="16:9"
+      width={1200}
+      format="webp"
+      alt={"Cover Image"}
+      class="max-w-full rounded-lg"
+    />
+    <div class="text-xl py-1 mt-4">Hey there 👋</div>
     <div class="text-5xl font-bold">I'm Varaprasadh</div>
     <div class="text-3xl py-3">Engineer and Open Thinker</div>
     <div class="py-2">
       <text class="text-lg">
-        I work as Software Engineer / Tech lead at <a class="font-bold" href="https://www.imaginnovate.com/" target="_blank">Imaginnovate</a>
-        and I'm passionate about building products that make people's life easier. <br />
+        I'm working as a Tech Lead at <a class="font-bold" href="https://www.imaginnovate.com/" target="_blank">Imaginnovate</a>
+        and passionate about building products that make people's life easier. <br />
       </text>
     </div>
     <div class="mt-8">
