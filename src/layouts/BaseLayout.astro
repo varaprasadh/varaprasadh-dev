@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
+import { Analytics } from '@vercel/analytics/react';
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
@@ -27,6 +28,7 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, includeSideba
         <Footer />
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
+      <Analytics />
     </div>
   </body>
 </html>
