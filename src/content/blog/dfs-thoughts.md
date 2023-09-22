@@ -56,19 +56,8 @@ And ended up scraping github profile pictures of 15000 accounts.
 
 and next thought was that we should not be using sequential IDs for data security when the data is crucial. in this case, GitHub profile pictures may not be private. if we use UUIDs, we cannot iterate over and access resources randomly unless we have a reference to the actual resource.
 
+If you would like know more about UUID ***[See this Wiki](https://en.wikipedia.org/wiki/Universally_unique_identifier)***
+
 ![unique key meme](/public/blogs/dfs/unique_meme.jpeg)
 
-
-<div>
-  <span class="tag">#softwareengineering</span>
-  <span class="tag">#devlife </span>
-  <span class="tag">#github</span>
-  <span class="tag">#developers</span>
-</div>
-
-<style>
-.tag {
-    color: #36DCCE;
-}
-
-</style>
+## Thank you reading ❤️
