@@ -2,7 +2,7 @@
 title: "Depth First Search Mindset & Learning"
 description: "in the way of learning a thing leads to learn bunch of other things"
 pubDate: "Sept 23 2023"
-heroImage: "/public/blogs/dfs/cover.jpg"
+heroImage: "/blogs/dfs/cover.jpg"
 ---
 
 ## TL;DR
@@ -18,7 +18,7 @@ After doing the challenge, it says put the git repo URL and live preview URL and
 GitHub actions have been set up on the repo. and it's failing to deploy for some reason. I re-tried a couple of times and went to the internet to see if there was any solution.
 and the first link which popped up was someone who had already opened a thread with the exact issue. and a bunch of people reporting and I did my part too. [link to github thread](https://github.com/orgs/community/discussions/67961)
 
-![github thread](/public/blogs/dfs/github_thread.jpg)
+![github thread](/blogs/dfs/github_thread.jpg)
 
 And got to know that I'm not the only one. now the people in the thread are going crazy and waiting for a fix from GitHub (it's fixed now)
 
@@ -52,12 +52,12 @@ for (let i = 1; i <= 92420867; i+=1) {
 ```
 And ended up scraping github profile pictures of 15000 accounts.
 
-![github avatars](/public/blogs/dfs/github_avatars.jpeg)
+![github avatars](/blogs/dfs/github_avatars.jpeg)
 
 and next thought was that we should not be using sequential IDs for data security when the data is crucial. in this case, GitHub profile pictures may not be private. if we use UUIDs, we cannot iterate over and access resources randomly unless we have a reference to the actual resource.
 
 If you would like know more about UUID ***[See this Wiki](https://en.wikipedia.org/wiki/Universally_unique_identifier)***
 
-![unique key meme](/public/blogs/dfs/unique_meme.jpeg)
+![unique key meme](/blogs/dfs/unique_meme.jpeg)
 
 ## Thank you reading ❤️
