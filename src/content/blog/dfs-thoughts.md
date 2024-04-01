@@ -8,7 +8,7 @@ heroImage: "/blogs/dfs/cover.jpg"
 ## TL;DR
 > in the way of learning a thing leads to learn bunch of other things.
 
-# It was Weekend
+# It was Weekend 😎
 
 I was curious about my CSS skills and wanted to test myself. so I went to the ***[front-end mentor](https://www.frontendmentor.io/home)*** website and picked up a QR code design challenge. [Link to my solution](https://varaprasadh.github.io/FM-QR-Code/)
 
