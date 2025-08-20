@@ -4,14 +4,16 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import { Image } from "@astrojs/image/components";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-   <Image
+    <Image
       src={"/social_img.jpg"}
       aspectRatio="16:9"
       width={1200}
@@ -24,12 +26,19 @@ const last_posts = posts.slice(0, 3);
     <div class="text-3xl py-3">Engineer and Open Thinker</div>
     <div class="py-2">
       <text class="text-lg">
-        I'm working as a Associate Software Architect at <a class="font-bold" href="https://www.imaginnovate.com/" target="_blank">Imaginnovate</a>
-        and passionate about building products that make people's life easier. <br />
+        I'm working as a Associate Software Architect at <a
+          class="font-bold"
+          href="https://www.imaginnovate.com/"
+          target="_blank">Imaginnovate</a
+        >
+        and passionate about building products that make people's life easier. <br
+        />
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn" href="https://twitter.com/consious_coder" target="_blank"> Let's connect!</a>
+      <a class="btn" href="https://twitter.com/consious_coder" target="_blank">
+        Let's connect!</a
+      >
     </div>
   </div>
 
@@ -37,6 +46,14 @@ const last_posts = posts.slice(0, 3);
     <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
   </div>
 
+  <HorizontalCard
+    title="PGT Services"
+    img="/images/projects/pgt_services.png"
+    desc="Built the platform from foundation for providing load board, rating, bol generations."
+    url="https://www.pgt-services.com/"
+    badge="ONGOING"
+  />
+  
   <HorizontalCard
     title="Uber Freight x Transplace"
     img="/images/projects/uberfreight.png"
