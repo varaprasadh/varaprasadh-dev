@@ -1,4 +1,3 @@
-
 ---
 title: "SLMs vs Self-Hosted vs Commercial APIs"
 description: "A comprehensive comparison of three approaches to working with language models."
