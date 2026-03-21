@@ -1,90 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HorizontalCard from "../components/HorizontalCard.astro";
+
+const professional = [
+  {
+    title: "PGT Services",
+    desc: "Built the platform from foundation — load board, rating, BOL generation.",
+    url: "https://www.pgt-services.com/",
+    badge: "ONGOING",
+  },
+  {
+    title: "Uber Freight × Transplace",
+    desc: "Logistics solutions for managing supply chain and transportation.",
+    url: "https://www.uberfreight.com/",
+    badge: "ONGOING",
+  },
+  {
+    title: "Becker Logistics",
+    desc: "Rating engine that streamlines pricing team's rating and bidding workflows.",
+    url: "https://www.beckerlogistics.com/",
+  },
+  {
+    title: "Blended Sense",
+    desc: "Media production platform for brands and agencies to create content at scale.",
+    url: "https://www.blendedsense.com/",
+  },
+  {
+    title: "Leverage",
+    desc: "Automated end-to-end supply chain visibility across purchase orders, shipments, and inventory.",
+    url: "https://www.tryleverage.ai/",
+  },
+];
+
+const personal = [
+  {
+    title: "Packify",
+    desc: "3D container load planner and visualizer for the bin packing problem. Hackathon winner.",
+    url: "https://github.com/varaprasadh/Packify",
+  },
+  {
+    title: "AlienBook",
+    desc: "An enhanced social media platform.",
+    url: "https://github.com/varaprasadh/Alienbook",
+    badge: "FAVORITE",
+  },
+  {
+    title: "Sparkly",
+    desc: "Chrome extension — beautiful new tab page, tab manager, and bookmark organizer.",
+    url: "https://chrome.google.com/webstore/detail/sparkly-new-tab-tab-manag/finlildobfdjhkemcieihnkgmgoikgan",
+  },
+  {
+    title: "Chain Reaction 3D",
+    desc: "3D version of Chain Reaction game using BFS algorithm and Three.js.",
+    url: "https://github.com/varaprasadh/ChainReaction-web-algorithm",
+  },
+];
 ---
 
-<BaseLayout title="Projects" sideBarActiveItemID="projects">
-  <div>
-    <div class="text-3xl w-full font-bold mb-5">Professional Projects</div>
-  </div>
+<BaseLayout title="Projects — varaprasadh.dev" activeNav="projects">
+  <p class="text-[#4ade80] text-xs mb-8">$ ls ~/projects</p>
 
-  <HorizontalCard
-    title="PGT Services"
-    img="/images/projects/pgt_services.png"
-    desc="Built the platform from foundation for providing load board, rating, bol generations."
-    url="https://www.pgt-services.com/"
-    badge="ONGOING"
-  />
+  <section class="mb-12">
+    <h2 class="text-xs text-[#555555] uppercase tracking-widest mb-6">professional</h2>
+    {professional.map(p => (
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
+              {p.badge && (
+                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
+                  {p.badge}
+                </span>
+              )}
+            </div>
+            <p class="text-xs text-[#555555]">{p.desc}</p>
+          </div>
+          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+        </div>
+      </a>
+    ))}
+  </section>
 
-  <HorizontalCard
-    title="Uber Freight x Transplace"
-    img="/images/projects/uberfreight.png"
-    desc="Logistics Solutions for managing supply chain and transportation."
-    url="https://www.uberfreight.com/"
-    badge="ONGOING"
-  />
-  <HorizontalCard
-    title="Becker Logistics"
-    img="/images/projects/becker.png"
-    desc="Worked on a rating engine which make pricing team's rating and bidding processes easier."
-    url="https://www.beckerlogistics.com/"
-  />
-  <HorizontalCard
-    title="Blended Sense"
-    img="/images/projects/blendedsense.png"
-    desc="Media production platform for brands and agencies to create content at scale."
-    url="https://www.blendedsense.com/"
-  />
-  <HorizontalCard
-    title="Uprise Radiyo"
-    img="/images/projects/uprise.png"
-    desc="A music streaming platform for independent artists to share their music."
-    url="/404"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Leverage"
-    img="/images/projects/leverage.png"
-    desc="Leverage provides automated end-to-end supply chain visibility across your purchase orders, shipments, and inventory. Stop wasting time on manual calls and emails to suppliers and logistics partners, and answer critical supply chain questions all in real time."
-    url="https://www.tryleverage.ai/"
-  />
+  <section>
+    <h2 class="text-xs text-[#555555] uppercase tracking-widest mb-6">personal</h2>
+    {personal.map(p => (
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
+              {p.badge && (
+                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
+                  {p.badge}
+                </span>
+              )}
+            </div>
+            <p class="text-xs text-[#555555]">{p.desc}</p>
+          </div>
+          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+        </div>
+      </a>
+    ))}
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Personal Projects</div>
-  </div>
-  <HorizontalCard
-    title="Packify - Container Load Planner & Visualizer"
-    img="/images/projects/packify.png"
-    desc="A container load planner and visualizer for 3D bin packing problem. Built this during hackathon. and We Won!"
-    url="https://github.com/varaprasadh/Packify"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="AlienBook"
-    img="/images/projects/alienbook.png"
-    desc="A Enhanced Version of Social Media Platform."
-    url="https://github.com/varaprasadh/Alienbook"
-    badge="FAVORITE"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Sparkly: New Tab, Tab Manager, Bookmarks"
-    img="/images/projects/sparkly.png"
-    desc="Chrome extension which makes your new tab page more beautiful and productive."
-    url="https://chrome.google.com/webstore/detail/sparkly-new-tab-tab-manag/finlildobfdjhkemcieihnkgmgoikgan"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Chain Reaction 3D"
-    img="/post_img.webp"
-    desc="A 3D version of Chain Reaction Game. Power of Breadth First Search Algorithm and Three.js."
-    url="https://github.com/varaprasadh/ChainReaction-web-algorithm"
-  />
-  <!-- find more on my github button -->
-  <div class="divider my-0"></div>
-  <div class="text-center">
-    <a href="https://github.com/varaprasadh" target="_blank" class="btn mt-5">
-      Find More on my Github
-    </a>
-  </div>
+    <div class="pt-8">
+      <a
+        href="https://github.com/varaprasadh"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors"
+      >
+        → more on github
+      </a>
+    </div>
+  </section>
 </BaseLayout>

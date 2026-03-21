@@ -1,38 +1,28 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
-import { Image } from "@astrojs/image/components";
+const { title, desc, url, badge, target = "_blank" } = Astro.props;
 ---
 
-<div
-  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+<a
+  href={url}
+  target={target}
+  class="group block py-4 border-b border-[#1a1a1a] hover:border-[#333333] transition-colors"
 >
-  <a href={url} target={target}>
-    <div class="hero-content flex-col md:flex-row">
-      {
-        img && (
-          <Image
-            src={img}
-            aspectRatio="16:9"
-            width={750}
-            format="webp"
-            alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg md:mr-6 mb-4 md:mb-0 object-cover bg-white "
-          />
-        )
-      }
-      <div class="grow w-full">
-        <h1 class="text-xl font-bold">
+  <div class="flex items-start justify-between gap-4">
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3 mb-1">
+        <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">
           {title}
-          {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
-        </h1>
-        <p class="py-1 text-1xl">{desc}</p>
-        <div class="card-actions justify-end">
-          {
-            tags &&
-              tags.map((tag) => <div class="badge badge-outline">{tag}</div>)
-          }
-        </div>
+        </span>
+        {badge && (
+          <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
+            {badge}
+          </span>
+        )}
       </div>
+      <p class="text-xs text-[#555555] leading-relaxed">{desc}</p>
     </div>
-  </a>
-</div>
+    <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">
+      →
+    </span>
+  </div>
+</a>

@@ -6,43 +6,42 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 
 export interface Props extends BlogSchema {}
 
-const { title, description, pubDate, updatedDate, heroImage, badge } =
-  Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, badge } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("MMMM DD, YYYY");
-import { Image } from "@astrojs/image/components";
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
-  <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
-      {
-        heroImage && (
-        <Image
-            aspectRatio={"16:9"}
-            width={750}
-            height={422}
-            format="webp"
-            src={heroImage}
-            alt={title}
-            class="w-full mb-6"
-          />
-        )
-      }
-      <h1 class="title my-2 text-4xl font-bold">{title}</h1>
-      {pubDate && <time>{displayDate}</time>}
-      <br />
-      {badge && <div class="badge badge-secondary my-1">{badge}</div>}
-      {
-        updatedDate && (
-          <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
-          </div>
-        )
-      }
-      <div class="divider my-2"></div>
+<BaseLayout title={`${title} — varaprasadh.dev`} description={description} image={heroImage}>
+  <article class="max-w-2xl">
+    <!-- Post meta -->
+    <div class="mb-8">
+      <a href="/blog" class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        ← back to blog
+      </a>
+    </div>
+
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <time class="text-xs text-[#444444]">{displayDate}</time>
+        {badge && (
+          <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
+            {badge}
+          </span>
+        )}
+      </div>
+      <h1 class="text-xl sm:text-2xl font-bold text-[#e8e8e8] leading-snug mb-3">
+        {title}
+      </h1>
+      <p class="text-sm text-[#555555]">{description}</p>
+      {updatedDate && (
+        <p class="text-xs text-[#444444] mt-2">updated: {updatedDate}</p>
+      )}
+    </header>
+
+    <hr class="border-t border-[#1a1a1a] mb-10" />
+
+    <div class="prose prose-terminal max-w-none text-sm leading-relaxed">
       <slot />
-    </article>
-  </main>
+    </div>
+  </article>
 </BaseLayout>

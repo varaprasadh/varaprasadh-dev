@@ -1,103 +1,126 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
-import { Image } from "@astrojs/image/components";
+import { SOCIAL_LINKS } from "../config";
+import dayjs from "dayjs";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
 const last_posts = posts.slice(0, 3);
+
+const projects = [
+  {
+    title: "PGT Services",
+    desc: "Built the platform from foundation — load board, rating, BOL generation.",
+    url: "https://www.pgt-services.com/",
+    badge: "ONGOING",
+  },
+  {
+    title: "Uber Freight × Transplace",
+    desc: "Logistics solutions for managing supply chain and transportation.",
+    url: "https://www.uberfreight.com/",
+    badge: "ONGOING",
+  },
+  {
+    title: "Leverage",
+    desc: "Automated end-to-end supply chain visibility across POs, shipments, and inventory.",
+    url: "https://www.tryleverage.ai/",
+  },
+];
 ---
 
-<BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <Image
-      src={"/social_img.jpg"}
-      aspectRatio="16:9"
-      width={1200}
-      format="webp"
-      alt={"Cover Image"}
-      style={{ height: "300px", objectFit: "cover", objectPosition: "center" }}
-      class="max-w-full rounded-lg"
-    />
-    <div class="text-xl py-1 mt-4">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Varaprasadh Alajangi</div>
-    <div class="text-3xl py-3">
-      Software Engineer
-    </div>
-    <div class="py-2">
-      <text class="text-lg">
-        I'm currently working as a Associate Software Architect at 
-        <a
-          class="font-bold underline"
-          href="https://www.imaginnovate.com/"
-          target="_blank">Imaginnovate</a
-        >
-        and solving and building real world enterprise solutions with code and creativity. Handling things from designing to deployment. <br/>
-      </text>
-    </div>
-    <div class="mt-8">
-      <a 
-        class="btn border-white bg-zinc-100 text-black hover:bg-black hover:text-white"
-        href="https://www.linkedin.com/in/varaprasadh/" 
-        target="_blank"
-      >
-        Let's connect!
+<BaseLayout>
+  <!-- Hero -->
+  <section class="mb-16">
+    <p class="text-[#4ade80] text-xs mb-4">$ whoami</p>
+    <h1 class="text-2xl sm:text-3xl font-bold text-[#e8e8e8] mb-2 cursor">
+      varaprasadh alajangi
+    </h1>
+    <p class="text-sm text-[#888888] mb-6">
+      associate software architect · vizag, india
+    </p>
+    <p class="text-sm text-[#aaaaaa] leading-relaxed max-w-xl mb-8">
+      building enterprise systems from design to deployment.
+      currently at <a href="https://www.imaginnovate.com/" target="_blank" class="text-[#4ade80] hover:underline">imaginnovate</a>.
+      full-stack engineer with a focus on logistics, supply chain, and scalable platforms.
+    </p>
+
+    <!-- Social links -->
+    <div class="flex items-center gap-6">
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer"
+        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        github
+      </a>
+      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer"
+        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        x/twitter
+      </a>
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
+        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        linkedin
       </a>
     </div>
-  </div>
+  </section>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
-  </div>
+  <!-- Recent Work -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-[#4ade80] text-xs">~/projects</span>
+      <div class="flex-1 border-t border-[#1a1a1a]"></div>
+      <a href="/projects" class="text-[#333333] hover:text-[#4ade80] text-xs transition-colors">see all →</a>
+    </div>
 
-  <HorizontalCard
-    title="PGT Services"
-    img="/images/projects/pgt_services.png"
-    desc="Built the platform from foundation for providing load board, rating, bol generations."
-    url="https://www.pgt-services.com/"
-    badge="ONGOING"
-  />
+    {projects.map(p => (
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-3 mb-1">
+              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
+              {p.badge && (
+                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
+                  {p.badge}
+                </span>
+              )}
+            </div>
+            <p class="text-xs text-[#555555]">{p.desc}</p>
+          </div>
+          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+        </div>
+      </a>
+    ))}
+  </section>
 
-  <HorizontalCard
-    title="Uber Freight x Transplace"
-    img="/images/projects/uberfreight.png"
-    desc="Logistics Solutions for managing supply chain and transportation."
-    url="https://www.uberfreight.com/"
-    badge="ONGOING"
-  />
-  <HorizontalCard
-    title="Becker Logistics"
-    img="/images/projects/becker.png"
-    desc="Worked on a rating engine which make pricing team's rating and bidding processes easier."
-    url="https://www.beckerlogistics.com/"
-  />
-  <HorizontalCard
-    title="Blended Sense"
-    img="/images/projects/blendedsense.png"
-    desc="Media production platform for brands and agencies to create content at scale."
-    url="https://www.blendedsense.com/"
-  />
+  <!-- Latest Posts -->
+  <section>
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-[#4ade80] text-xs">~/blog</span>
+      <div class="flex-1 border-t border-[#1a1a1a]"></div>
+      <a href="/blog" class="text-[#333333] hover:text-[#4ade80] text-xs transition-colors">see all →</a>
+    </div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
-
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + post.slug}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+    {last_posts.map(post => (
+      <a
+        href={`/blog/${post.slug}`}
+        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors mb-1">
+              {post.data.title}
+            </p>
+            <p class="text-xs text-[#555555]">{post.data.description}</p>
+          </div>
+          <span class="text-[#444444] text-xs shrink-0 whitespace-nowrap mt-0.5">
+            {dayjs(post.data.pubDate).format("MMM YYYY")}
+          </span>
+        </div>
+      </a>
+    ))}
+  </section>
 </BaseLayout>
