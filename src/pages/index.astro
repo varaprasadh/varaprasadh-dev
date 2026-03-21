@@ -11,21 +11,20 @@ const last_posts = posts.slice(0, 3);
 
 const projects = [
   {
+    title: "Fleetenable",
+    desc: "Fleet management platform. Currently building Able — the AI engine powering fleet intelligence and automation.",
+    url: "https://fleetenable.com/",
+    badge: "ONGOING",
+  },
+  {
     title: "PGT Services",
     desc: "Built the platform from foundation — load board, rating, BOL generation.",
     url: "https://www.pgt-services.com/",
-    badge: "ONGOING",
   },
   {
     title: "Uber Freight × Transplace",
     desc: "Logistics solutions for managing supply chain and transportation.",
     url: "https://www.uberfreight.com/",
-    badge: "ONGOING",
-  },
-  {
-    title: "Leverage",
-    desc: "Automated end-to-end supply chain visibility across POs, shipments, and inventory.",
-    url: "https://www.tryleverage.ai/",
   },
 ];
 ---
@@ -42,7 +41,7 @@ const projects = [
     </p>
     <p class="text-sm text-[#aaaaaa] leading-relaxed max-w-xl mb-8">
       building enterprise systems from design to deployment.
-      currently at <a href="https://www.imaginnovate.com/" target="_blank" class="text-[#4ade80] hover:underline">imaginnovate</a>.
+      currently building <a href="https://fleetenable.com/" target="_blank" class="text-[#4ade80] hover:underline">fleetenable</a> at <a href="https://www.imaginnovate.com/" target="_blank" class="text-[#4ade80] hover:underline">imaginnovate</a>.
       full-stack engineer with a focus on logistics, supply chain, and scalable platforms.
     </p>
 
@@ -87,6 +86,7 @@ const projects = [
                   {p.badge}
                 </span>
               )}
+
             </div>
             <p class="text-xs text-[#555555]">{p.desc}</p>
           </div>
