@@ -96,6 +96,36 @@ const projects = [
     ))}
   </section>
 
+  <!-- Featured: Sparkly -->
+  <section class="mb-16">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-[#4ade80] text-xs">~/personal</span>
+      <div class="flex-1 border-t border-[#1a1a1a]"></div>
+    </div>
+    <a
+      href="https://sparklytab.dev"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group block border border-[#1e1e1e] hover:border-[#4ade80] p-5 transition-colors"
+    >
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors font-bold">Sparkly</span>
+          <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">FEATURED</span>
+        </div>
+        <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0">→</span>
+      </div>
+      <p class="text-xs text-[#888888] leading-relaxed mb-4">
+        Your Chrome new tab, finally at full power. Universal search across tabs, history, and the web — plus Google Workspace integration, tab manager, dev news feed, and launchpad.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {["universal search", "tab manager", "google workspace", "feed hub", "launchpad"].map(f => (
+          <span class="text-[10px] text-[#444444] border border-[#222222] px-2 py-0.5">{f}</span>
+        ))}
+      </div>
+    </a>
+  </section>
+
   <!-- Latest Posts -->
   <section>
     <div class="flex items-center gap-3 mb-6">
