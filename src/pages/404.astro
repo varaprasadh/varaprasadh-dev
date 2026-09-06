@@ -2,12 +2,25 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="404: Not Found" description="This page could not be found." noindex>
-  <h1 class="text-4xl text-ink mb-4">Page not found</h1>
-  <p class="text-lg text-mist mb-8 leading-relaxed">
-    This URL does not exist. The writing and work are still at home.
-  </p>
-  <a href="/" class="text-bay hover:underline underline-offset-4">
-    Back home
-  </a>
+<BaseLayout title="404: Not Found" description="This page could not be found." noindex flush>
+  <section class="relative min-h-[70svh] bg-dusk flex items-end">
+    <img
+      src="/profile-hero.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-[70%_40%] opacity-50"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-dusk via-dusk/70 to-dusk/40"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 pb-24 pt-32 w-full">
+      <p class="text-ember text-sm tracking-[0.22em] mb-4">404</p>
+      <h1 class="font-display font-light italic text-sand text-5xl sm:text-7xl tracking-tightest mb-6">
+        Off the ridge.
+      </h1>
+      <p class="text-sand/70 text-lg max-w-md mb-8">
+        This path does not exist. The work and writing are still at home.
+      </p>
+      <a href="/" class="text-ember hover:underline underline-offset-4">
+        Back home
+      </a>
+    </div>
+  </section>
 </BaseLayout>

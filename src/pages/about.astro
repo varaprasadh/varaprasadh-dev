@@ -37,90 +37,105 @@ const skills = [
 ];
 ---
 
-<BaseLayout title="About — varaprasadh.dev" activeNav="about">
-  <h1 class="text-4xl text-ink mb-8">About</h1>
-
-  <section class="mb-16">
-    <p class="text-lg text-ink leading-relaxed mb-4">
-      I'm Varaprasadh — Vara, for short. I have been coding since college: web apps, mobile apps, browser extensions, and tools.
-    </p>
-    <p class="text-lg text-mist leading-relaxed">
-      I work across the full lifecycle, from interface design to cloud deployment. Right now I am an associate software architect at
-      <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Imaginnovate</a>,
-      building
-      <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Fleetenable</a>
-      — specifically Able, its AI engine.
-    </p>
-  </section>
-
-  <section class="mb-16">
-    <h2 class="text-2xl text-ink mb-8">Experience</h2>
-    <ol class="space-y-8">
-      {experience.map(e => (
-        <li class="grid grid-cols-[6.5rem_1fr] gap-4">
-          <span class="text-sm text-mist pt-1">{e.period}</span>
-          <div>
-            <p class="font-serif text-lg text-ink">{e.title}</p>
-            <p class="text-bay text-sm mb-1">{e.company}</p>
-            <p class="text-mist leading-relaxed">{e.desc}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <section class="mb-16">
-    <h2 class="text-2xl text-ink mb-6">Skills</h2>
-    <p class="text-mist leading-relaxed">
-      {skills.join(', ')}
-    </p>
-  </section>
-
-  <section class="mb-16">
-    <h2 class="text-2xl text-ink mb-6">Certifications</h2>
-    <ul class="space-y-3">
-      <li>
-        <a
-          href="https://www.credly.com/badges/8be11753-a2f8-4483-8c1d-7dc36de93a2e"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-bay hover:underline underline-offset-4"
-        >
-          Professional Google Cloud Architect
-        </a>
-      </li>
-      <li class="text-mist">
-        Professional Google Cloud Developer <span class="text-sm">(expired)</span>
-      </li>
-    </ul>
-  </section>
-
-  <section class="mb-16">
-    <h2 class="text-2xl text-ink mb-8">Education</h2>
-    <ol class="space-y-8">
-      <li class="grid grid-cols-[6.5rem_1fr] gap-4">
-        <span class="text-sm text-mist pt-1">2017–2020</span>
-        <div>
-          <p class="font-serif text-lg text-ink">B.S. Computer Science Engineering</p>
-          <p class="text-mist">ANITS, Vizag, India</p>
-        </div>
-      </li>
-      <li class="grid grid-cols-[6.5rem_1fr] gap-4">
-        <span class="text-sm text-mist pt-1">2014–2017</span>
-        <div>
-          <p class="font-serif text-lg text-ink">Diploma in Mechanical Engineering</p>
-          <p class="text-mist">GPT, Srikakulam, India</p>
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h2 class="text-2xl text-ink mb-6">Connect</h2>
-    <div class="flex items-center gap-6">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">GitHub</a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">X</a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">LinkedIn</a>
+<BaseLayout title="About — varaprasadh.dev" activeNav="about" flush>
+  <div class="bg-sand">
+    <div class="max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-16 grid md:grid-cols-12 gap-12 md:gap-16 items-end">
+      <div class="md:col-span-6">
+        <p class="text-ember text-sm tracking-[0.22em] mb-4">About</p>
+        <h1 class="font-display font-light text-5xl sm:text-6xl tracking-tightest mb-8">
+          Vara, for short.
+        </h1>
+        <p class="text-lg leading-relaxed mb-4">
+          I have been coding since college: web apps, mobile apps, browser extensions, and tools. Comfortable from the interface to the cloud.
+        </p>
+        <p class="text-lg text-haze leading-relaxed">
+          Right now I am an associate software architect at
+          <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">Imaginnovate</a>,
+          building
+          <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">Fleetenable</a>
+          — specifically Able, its AI engine.
+        </p>
+      </div>
+      <div class="md:col-span-6">
+        <img
+          src="/social_img.jpg"
+          alt="Varaprasadh standing on a ridge above layered mountains"
+          class="w-full aspect-[4/5] object-cover object-center"
+        />
+      </div>
     </div>
-  </section>
+
+    <div class="max-w-3xl mx-auto px-6 py-8 sm:py-16">
+      <section class="mb-20">
+        <h2 class="text-3xl font-light mb-10">Experience</h2>
+        <ol class="space-y-10">
+          {experience.map(e => (
+            <li class="grid grid-cols-[7rem_1fr] gap-5">
+              <span class="text-sm text-haze pt-2">{e.period}</span>
+              <div>
+                <p class="font-display text-2xl">{e.title}</p>
+                <p class="text-ember text-sm mb-2">{e.company}</p>
+                <p class="text-haze leading-relaxed">{e.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-3xl font-light mb-6">Skills</h2>
+        <p class="text-haze leading-relaxed text-lg">
+          {skills.join(', ')}
+        </p>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-3xl font-light mb-6">Certifications</h2>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="https://www.credly.com/badges/8be11753-a2f8-4483-8c1d-7dc36de93a2e"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-ember hover:underline underline-offset-4"
+            >
+              Professional Google Cloud Architect
+            </a>
+          </li>
+          <li class="text-haze">
+            Professional Google Cloud Developer <span class="text-sm">(expired)</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-3xl font-light mb-10">Education</h2>
+        <ol class="space-y-10">
+          <li class="grid grid-cols-[7rem_1fr] gap-5">
+            <span class="text-sm text-haze pt-2">2017–2020</span>
+            <div>
+              <p class="font-display text-2xl">B.S. Computer Science Engineering</p>
+              <p class="text-haze">ANITS, Vizag, India</p>
+            </div>
+          </li>
+          <li class="grid grid-cols-[7rem_1fr] gap-5">
+            <span class="text-sm text-haze pt-2">2014–2017</span>
+            <div>
+              <p class="font-display text-2xl">Diploma in Mechanical Engineering</p>
+              <p class="text-haze">GPT, Srikakulam, India</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="pb-24">
+        <h2 class="text-3xl font-light mb-6">Connect</h2>
+        <div class="flex items-center gap-8">
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">GitHub</a>
+          <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">X</a>
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">LinkedIn</a>
+        </div>
+      </section>
+    </div>
+  </div>
 </BaseLayout>

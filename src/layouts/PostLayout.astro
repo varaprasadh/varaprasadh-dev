@@ -18,22 +18,22 @@ const displayDate = formatDate(pubDate);
 >
   <article>
     <p class="mb-10">
-      <a href="/blog" class="text-sm text-mist hover:text-bay">
+      <a href="/blog" class="text-sm text-haze hover:text-ember">
         Writing
       </a>
     </p>
 
     <header class="mb-12">
-      <p class="text-sm text-mist mb-4">
+      <p class="text-sm text-haze mb-5">
         <time datetime={pubDate.toISOString()}>{displayDate}</time>
-        {badge && <span class="text-laterite"> · {badge}</span>}
+        {badge && <span class="text-ember"> · {badge}</span>}
       </p>
-      <h1 class="text-3xl sm:text-4xl text-ink leading-tight mb-4">
+      <h1 class="font-display font-light text-4xl sm:text-5xl tracking-tightest leading-[1.1] mb-5">
         {title}
       </h1>
-      <p class="text-lg text-mist leading-relaxed">{description}</p>
+      <p class="text-xl text-haze leading-relaxed">{description}</p>
       {updatedDate && (
-        <p class="text-sm text-mist mt-3">Updated {updatedDate}</p>
+        <p class="text-sm text-haze mt-3">Updated {updatedDate}</p>
       )}
     </header>
 

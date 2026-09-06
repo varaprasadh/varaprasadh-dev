@@ -11,7 +11,7 @@ export interface Props {
   activeNav?: string;
   ogType?: string;
   noindex?: boolean;
-  wide?: boolean;
+  flush?: boolean;
 }
 
 const {
@@ -21,7 +21,7 @@ const {
   activeNav,
   ogType,
   noindex = false,
-  wide = false,
+  flush = false,
 } = Astro.props;
 ---
 
@@ -30,14 +30,21 @@ const {
   <head>
     <BaseHead title={title} description={description} image={image} ogType={ogType} noindex={noindex} />
   </head>
-  <body class="bg-salt text-ink min-h-screen font-sans">
-    <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:bg-salt focus:px-3 focus:py-2">
+  <body class="bg-sand text-ink min-h-screen font-sans">
+    <div class="grain" aria-hidden="true"></div>
+    <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:bg-sand focus:px-3 focus:py-2">
       Skip to content
     </a>
-    <Header activeNav={activeNav} />
-    <main id="content" class={`mx-auto px-6 py-16 sm:py-20 ${wide ? "max-w-5xl" : "max-w-2xl"}`}>
-      <slot />
-    </main>
+    <Header activeNav={activeNav} overlay={flush} />
+    {flush ? (
+      <div id="content">
+        <slot />
+      </div>
+    ) : (
+      <main id="content" class="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+        <slot />
+      </main>
+    )}
     <Footer />
     <script>
       import { inject } from "@vercel/analytics";

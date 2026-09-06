@@ -3,19 +3,20 @@ import { SOCIAL_LINKS } from "../config";
 const today = new Date();
 ---
 
-<footer class="max-w-5xl mx-auto px-6 py-12 border-t border-line mt-8">
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-    <span class="text-mist text-sm">
-      &copy; {today.getFullYear()} Varaprasadh Alajangi
-    </span>
-    <div class="flex items-center gap-6">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+<footer class="bg-dusk text-sand mt-0">
+  <div class="max-w-6xl mx-auto px-6 py-16 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+    <div>
+      <p class="font-display italic text-3xl font-light mb-3">Varaprasadh</p>
+      <p class="text-sand/50 text-sm">Vizag · {today.getFullYear()}</p>
+    </div>
+    <div class="flex items-center gap-8">
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-sand/70 hover:text-ember text-sm">
         GitHub
       </a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-sand/70 hover:text-ember text-sm">
         X
       </a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-sand/70 hover:text-ember text-sm">
         LinkedIn
       </a>
     </div>

@@ -1,5 +1,5 @@
 ---
-const { activeNav } = Astro.props;
+const { activeNav, overlay = false } = Astro.props;
 
 const navLinks = [
   { href: '/projects', label: 'Work', id: 'projects' },
@@ -8,9 +8,9 @@ const navLinks = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-salt/90 backdrop-blur-sm border-b border-line">
-  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-serif text-lg text-ink hover:text-bay">
+<header class={`sticky top-0 z-50 border-b border-white/10 backdrop-blur-md ${overlay ? 'bg-dusk/25' : 'bg-dusk/95'}`}>
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-display text-xl text-sand italic font-light tracking-tight">
       Varaprasadh
     </a>
 
@@ -18,8 +18,8 @@ const navLinks = [
       {navLinks.map(link => (
         <a
           href={link.href}
-          class={`text-[0.95rem] hover:text-bay ${
-            activeNav === link.id ? 'text-ink' : 'text-mist'
+          class={`text-sm tracking-wide hover:text-ember ${
+            activeNav === link.id ? 'text-ember' : 'text-sand/70'
           }`}
           aria-current={activeNav === link.id ? 'page' : undefined}
         >
@@ -30,7 +30,7 @@ const navLinks = [
 
     <button
       id="menu-toggle"
-      class="sm:hidden text-mist hover:text-ink"
+      class="sm:hidden text-sand/80 hover:text-sand text-sm"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -39,13 +39,13 @@ const navLinks = [
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-line bg-salt">
-    <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-3" aria-label="Mobile">
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-white/10 bg-dusk">
+    <nav class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-4" aria-label="Mobile">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class={`text-lg font-serif hover:text-bay ${
-            activeNav === link.id ? 'text-ink' : 'text-mist'
+          class={`font-display text-2xl hover:text-ember ${
+            activeNav === link.id ? 'text-ember' : 'text-sand'
           }`}
           aria-current={activeNav === link.id ? 'page' : undefined}
         >

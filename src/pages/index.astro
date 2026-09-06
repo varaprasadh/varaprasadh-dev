@@ -12,64 +12,74 @@ const last_posts = posts.slice(0, 3);
 const projects = PROFESSIONAL_PROJECTS.slice(0, 3);
 ---
 
-<BaseLayout wide>
-  <section class="max-w-2xl">
-    <h1 class="text-4xl sm:text-5xl text-ink mb-6">
-      Varaprasadh Alajangi
-    </h1>
-    <p class="text-xl text-mist leading-relaxed mb-6">
-      Associate software architect in Vizag. I design and ship logistics systems, from the interface down to the cloud.
-    </p>
-    <p class="text-lg text-ink/90 leading-relaxed mb-10">
-      These days I am building Able, the AI engine inside
-      <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Fleetenable</a>,
-      at
-      <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Imaginnovate</a>.
-    </p>
-    <div class="flex items-center gap-6 text-sm">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">GitHub</a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">X</a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">LinkedIn</a>
-    </div>
-  </section>
-
-  <section class="grid md:grid-cols-2 gap-16 md:gap-20 mt-24">
-    <div>
-      <div class="flex items-baseline justify-between mb-2">
-        <h2 class="text-2xl text-ink">Work</h2>
-        <a href="/projects" class="text-sm text-mist hover:text-bay">All work</a>
+<BaseLayout flush>
+  <section class="relative min-h-[100svh] bg-dusk">
+    <img
+      src="/profile-hero.jpg"
+      alt="Varaprasadh on a mountain ridge at sunset"
+      class="absolute inset-0 w-full h-full object-cover object-[70%_40%]"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-dusk via-dusk/25 to-dusk/30"></div>
+    <div class="relative z-10 min-h-[100svh] flex flex-col justify-end max-w-6xl mx-auto px-6 pb-16 sm:pb-20 pt-28">
+      <div class="hero-rise max-w-3xl">
+        <p class="text-ember text-sm tracking-[0.22em] mb-5">17.7°N · 83.2°E</p>
+        <h1 class="font-display text-sand font-light tracking-tightest text-[clamp(3.2rem,11vw,8.5rem)] leading-[0.88]">
+          Varaprasadh
+          <span class="italic block font-light">Alajangi</span>
+        </h1>
+        <p class="mt-8 text-sand/80 text-lg sm:text-xl max-w-md leading-relaxed font-light">
+          Associate software architect in Vizag. I design and ship logistics systems, from the interface down to the cloud.
+        </p>
+        <div class="mt-8 flex gap-6 text-sm text-sand/60">
+          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="hover:text-ember">GitHub</a>
+          <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="hover:text-ember">X</a>
+          <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-ember">LinkedIn</a>
+        </div>
       </div>
-      <WorkList items={projects} />
-    </div>
-
-    <div>
-      <div class="flex items-baseline justify-between mb-2">
-        <h2 class="text-2xl text-ink">Writing</h2>
-        <a href="/blog" class="text-sm text-mist hover:text-bay">All writing</a>
-      </div>
-      <ul>
-        {last_posts.map(post => (
-          <li class="border-t border-line first:border-t-0">
-            <a href={`/blog/${post.slug}`} class="group block py-5">
-              <p class="font-serif text-lg text-ink group-hover:text-bay">{post.data.title}</p>
-              <p class="mt-1 text-mist text-[0.95rem] leading-relaxed">{post.data.description}</p>
-              <time class="mt-2 block text-sm text-mist" datetime={post.data.pubDate.toISOString()}>
-                {formatDate(post.data.pubDate, "MMMM YYYY")}
-              </time>
-            </a>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
-  <section class="mt-24 max-w-2xl">
-    <h2 class="text-2xl text-ink mb-4">Sparkly</h2>
-    <p class="text-mist leading-relaxed mb-3">
-      A Chrome new tab with universal search across tabs, history, and the web, plus Google Workspace, a tab manager, and a launchpad.
-    </p>
-    <a href="https://sparklytab.dev" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">
-      sparklytab.dev
-    </a>
-  </section>
+  <main class="bg-sand">
+    <div class="max-w-6xl mx-auto px-6 py-24 sm:py-32 grid md:grid-cols-2 gap-20">
+      <section>
+        <div class="flex items-baseline justify-between mb-8">
+          <h2 class="text-4xl font-light">Work</h2>
+          <a href="/projects" class="text-sm text-haze hover:text-ember">All work</a>
+        </div>
+        <WorkList items={projects} />
+      </section>
+
+      <section>
+        <div class="flex items-baseline justify-between mb-8">
+          <h2 class="text-4xl font-light">Writing</h2>
+          <a href="/blog" class="text-sm text-haze hover:text-ember">All writing</a>
+        </div>
+        <ul>
+          {last_posts.map(post => (
+            <li class="border-t border-line first:border-t-0">
+              <a href={`/blog/${post.slug}`} class="group block py-6">
+                <p class="font-display text-2xl text-ink group-hover:text-ember transition-colors">{post.data.title}</p>
+                <p class="mt-2 text-haze leading-relaxed">{post.data.description}</p>
+                <time class="mt-3 block text-sm text-haze" datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate, "MMMM YYYY")}
+                </time>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="max-w-6xl mx-auto px-6 pb-28">
+      <p class="text-ember text-sm tracking-[0.22em] mb-4">Personal</p>
+      <h2 class="font-display text-5xl sm:text-6xl font-light italic mb-6">Sparkly</h2>
+      <p class="text-haze text-lg max-w-xl leading-relaxed mb-6">
+        A Chrome new tab with universal search across tabs, history, and the web — plus Google Workspace, a tab manager, and a launchpad.
+      </p>
+      <a href="https://sparklytab.dev" target="_blank" rel="noopener noreferrer" class="text-ember hover:underline underline-offset-4">
+        sparklytab.dev
+      </a>
+    </section>
+  </main>
 </BaseLayout>

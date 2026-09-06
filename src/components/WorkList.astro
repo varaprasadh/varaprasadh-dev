@@ -20,15 +20,15 @@ function badgeLabel(badge?: string) {
         href={p.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="group block py-5"
+        class="group block py-6"
       >
-        <p class="font-serif text-lg text-ink group-hover:text-bay">
+        <p class="font-display text-2xl sm:text-3xl text-ink group-hover:text-ember transition-colors">
           {p.title}
           {p.badge && (
-            <span class="ml-2 font-sans text-sm font-normal text-laterite">{badgeLabel(p.badge)}</span>
+            <span class="ml-3 font-sans text-xs tracking-wide font-normal text-ember align-middle">{badgeLabel(p.badge)}</span>
           )}
         </p>
-        <p class="mt-1 text-mist text-[0.95rem] leading-relaxed">{p.desc}</p>
+        <p class="mt-2 text-haze max-w-xl leading-relaxed">{p.desc}</p>
       </a>
     </li>
   ))}
