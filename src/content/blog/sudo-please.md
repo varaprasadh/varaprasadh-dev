@@ -1,7 +1,7 @@
 ---
 title: "Tired of Sudo? Use Please!"
 description: "Learn how you can run the commands which require 'sudo' with 'please'"
-pubDate: "May 21 2024"
+pubDate: "2024-05-21"
 heroImage: "/blogs/sudo-please/cover.jpg"
 ---
 
@@ -22,7 +22,7 @@ please apt-get update
 please rm -rf /tmp
 ```
 
-# now make it work on every terminal session. 
+## now make it work on every terminal session. 
 open the ~/.bashrc or ~/.zshrc file and add the below code
 ```bash
 alias please=sudo

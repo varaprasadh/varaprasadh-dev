@@ -1,36 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import { SOCIAL_LINKS } from "../config";
-import dayjs from "dayjs";
+import { SOCIAL_LINKS, PROFESSIONAL_PROJECTS } from "../config";
+import { formatDate } from "../lib/dates";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 const last_posts = posts.slice(0, 3);
-
-const projects = [
-  {
-    title: "Fleetenable",
-    desc: "Fleet management platform. Currently building Able — the AI engine powering fleet intelligence and automation.",
-    url: "https://fleetenable.com/",
-    badge: "ONGOING",
-  },
-  {
-    title: "PGT Services",
-    desc: "Built the platform from foundation — load board, rating, BOL generation.",
-    url: "https://www.pgt-services.com/",
-  },
-  {
-    title: "Uber Freight × Transplace",
-    desc: "Logistics solutions for managing supply chain and transportation.",
-    url: "https://www.uberfreight.com/",
-  },
-];
+const projects = PROFESSIONAL_PROJECTS.slice(0, 3);
 ---
 
 <BaseLayout>
-  <!-- Hero -->
   <section class="mb-16">
     <p class="text-[#4ade80] text-xs mb-4">$ whoami</p>
     <h1 class="text-2xl sm:text-3xl font-bold text-[#e8e8e8] mb-2 cursor">
@@ -41,33 +22,31 @@ const projects = [
     </p>
     <p class="text-sm text-[#aaaaaa] leading-relaxed max-w-xl mb-8">
       building enterprise systems from design to deployment.
-      currently building <a href="https://fleetenable.com/" target="_blank" class="text-[#4ade80] hover:underline">fleetenable</a> at <a href="https://www.imaginnovate.com/" target="_blank" class="text-[#4ade80] hover:underline">imaginnovate</a>.
+      currently building <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">fleetenable</a> at <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">imaginnovate</a>.
       full-stack engineer with a focus on logistics, supply chain, and scalable platforms.
     </p>
 
-    <!-- Social links -->
     <div class="flex items-center gap-6">
       <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
         github
       </a>
       <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
         x/twitter
       </a>
       <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
         linkedin
       </a>
     </div>
   </section>
 
-  <!-- Recent Work -->
   <section class="mb-16">
     <div class="flex items-center gap-3 mb-6">
       <span class="text-[#4ade80] text-xs">~/projects</span>
       <div class="flex-1 border-t border-[#1a1a1a]"></div>
-      <a href="/projects" class="text-[#333333] hover:text-[#4ade80] text-xs transition-colors">see all →</a>
+      <a href="/projects" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">see all →</a>
     </div>
 
     {projects.map(p => (
@@ -86,17 +65,15 @@ const projects = [
                   {p.badge}
                 </span>
               )}
-
             </div>
-            <p class="text-xs text-[#555555]">{p.desc}</p>
+            <p class="text-xs text-terminal-muted">{p.desc}</p>
           </div>
-          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
         </div>
       </a>
     ))}
   </section>
 
-  <!-- Featured: Sparkly -->
   <section class="mb-16">
     <div class="flex items-center gap-3 mb-6">
       <span class="text-[#4ade80] text-xs">~/personal</span>
@@ -113,25 +90,24 @@ const projects = [
           <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors font-bold">Sparkly</span>
           <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">FEATURED</span>
         </div>
-        <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0">→</span>
+        <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0">→</span>
       </div>
       <p class="text-xs text-[#888888] leading-relaxed mb-4">
         Your Chrome new tab, finally at full power. Universal search across tabs, history, and the web — plus Google Workspace integration, tab manager, dev news feed, and launchpad.
       </p>
       <div class="flex flex-wrap gap-2">
         {["universal search", "tab manager", "google workspace", "feed hub", "launchpad"].map(f => (
-          <span class="text-[10px] text-[#444444] border border-[#222222] px-2 py-0.5">{f}</span>
+          <span class="text-[10px] text-terminal-muted border border-[#222222] px-2 py-0.5">{f}</span>
         ))}
       </div>
     </a>
   </section>
 
-  <!-- Latest Posts -->
   <section>
     <div class="flex items-center gap-3 mb-6">
       <span class="text-[#4ade80] text-xs">~/blog</span>
       <div class="flex-1 border-t border-[#1a1a1a]"></div>
-      <a href="/blog" class="text-[#333333] hover:text-[#4ade80] text-xs transition-colors">see all →</a>
+      <a href="/blog" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">see all →</a>
     </div>
 
     {last_posts.map(post => (
@@ -144,10 +120,10 @@ const projects = [
             <p class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors mb-1">
               {post.data.title}
             </p>
-            <p class="text-xs text-[#555555]">{post.data.description}</p>
+            <p class="text-xs text-terminal-muted">{post.data.description}</p>
           </div>
-          <span class="text-[#444444] text-xs shrink-0 whitespace-nowrap mt-0.5">
-            {dayjs(post.data.pubDate).format("MMM YYYY")}
+          <span class="text-terminal-muted text-xs shrink-0 whitespace-nowrap mt-0.5">
+            {formatDate(post.data.pubDate, "MMM YYYY")}
           </span>
         </div>
       </a>

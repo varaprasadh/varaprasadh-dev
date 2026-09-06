@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /another-chance-another-lifee
+Disallow: /proposal-again/
+Disallow: /secret-content
+Disallow: /profile
 
 Sitemap: https://varaprasadh.dev/sitemap-index.xml

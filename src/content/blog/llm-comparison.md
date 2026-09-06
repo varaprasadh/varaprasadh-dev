@@ -1,12 +1,12 @@
 ---
 title: "SLMs vs Self-Hosted vs Commercial APIs"
 description: "A comprehensive comparison of three approaches to working with language models."
-pubDate: "Sep 29 2025"
-heroImage: "/blogs/llm-comparison.png"
+pubDate: "2025-09-29"
+heroImage: "/blogs/llm-comparison.jpg"
 ---
 
 
-# Language Model Deployment: SLMs vs Self-Hosted vs Commercial APIs
+## Language Model Deployment: SLMs vs Self-Hosted vs Commercial APIs
 
 A comprehensive comparison of three approaches to working with language models.
 

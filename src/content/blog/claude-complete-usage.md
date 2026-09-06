@@ -1,7 +1,7 @@
 ---
 title: "Claude Complete Usage Guide"
 description: "A comprehensive guide to using Claude effectively - from basic interactions to advanced techniques and best practices."
-pubDate: "Jan 23 2026"
+pubDate: "2026-01-23"
 ---
 
 Claude is an AI assistant developed by Anthropic. Whether you're a developer, writer, or just exploring AI capabilities, understanding how to use Claude effectively can significantly improve your productivity. This guide covers everything you need to know.

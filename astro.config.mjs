@@ -3,17 +3,25 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 
-import image from "@astrojs/image";
+const SITE = 'https://varaprasadh.dev';
 
-// https://astro.build/config
-import react from "@astrojs/react";
+const SITEMAP_EXCLUDE = new Set([
+  '/another-chance-another-lifee',
+  '/secret-content',
+  '/profile',
+  '/rss.xml',
+]);
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://varaprasadh-dev-varaprasadh.vercel.app/',
-  integrations: [mdx(), sitemap(), tailwind(), image({
-    serviceEntryPoint: '@astrojs/image/sharp',
-    cacheDir: "./.cache/image",
-    logLevel: 'debug'
-  }), react()]
+  site: SITE,
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname.replace(/\/$/, '') || '/';
+        return !SITEMAP_EXCLUDE.has(path);
+      },
+    }),
+    tailwind(),
+  ],
 });

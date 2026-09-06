@@ -1,28 +1,31 @@
 ---
 import { BlogSchema } from "../content/config";
 import BaseLayout from "./BaseLayout.astro";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
+import { formatDate } from "../lib/dates";
 
 export interface Props extends BlogSchema {}
 
 const { title, description, pubDate, updatedDate, heroImage, badge } = Astro.props;
-dayjs.extend(localizedFormat);
-const displayDate = dayjs(pubDate).format("MMMM DD, YYYY");
+const displayDate = formatDate(pubDate);
 ---
 
-<BaseLayout title={`${title} — varaprasadh.dev`} description={description} image={heroImage}>
+<BaseLayout
+  title={`${title} — varaprasadh.dev`}
+  description={description}
+  image={heroImage}
+  activeNav="blog"
+  ogType="article"
+>
   <article class="max-w-2xl">
-    <!-- Post meta -->
     <div class="mb-8">
-      <a href="/blog" class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors">
+      <a href="/blog" class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
         ← back to blog
       </a>
     </div>
 
     <header class="mb-10">
       <div class="flex items-center gap-3 mb-4">
-        <time class="text-xs text-[#444444]">{displayDate}</time>
+        <time class="text-xs text-terminal-muted" datetime={pubDate.toISOString()}>{displayDate}</time>
         {badge && (
           <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
             {badge}
@@ -32,9 +35,9 @@ const displayDate = dayjs(pubDate).format("MMMM DD, YYYY");
       <h1 class="text-xl sm:text-2xl font-bold text-[#e8e8e8] leading-snug mb-3">
         {title}
       </h1>
-      <p class="text-sm text-[#555555]">{description}</p>
+      <p class="text-sm text-terminal-muted">{description}</p>
       {updatedDate && (
-        <p class="text-xs text-[#444444] mt-2">updated: {updatedDate}</p>
+        <p class="text-xs text-terminal-muted mt-2">updated: {updatedDate}</p>
       )}
     </header>
 

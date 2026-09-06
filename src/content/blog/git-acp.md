@@ -1,7 +1,7 @@
 ---
 title: "How i do git add, commit, and push with a single command"
 description: "you were in hurry to run git add, git commit, and git push? Well, Learn how."
-pubDate: "May 18 2024"
+pubDate: "2024-05-18"
 heroImage: "/blogs/git-acp-cover.jpg"
 ---
 

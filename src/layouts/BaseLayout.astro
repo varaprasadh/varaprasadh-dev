@@ -2,16 +2,31 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { Analytics } from '@vercel/analytics/react';
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
-const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, activeNav } = Astro.props;
+export interface Props {
+  image?: string;
+  title?: string;
+  description?: string;
+  activeNav?: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  activeNav,
+  ogType,
+  noindex = false,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} image={image} />
+    <BaseHead title={title} description={description} image={image} ogType={ogType} noindex={noindex} />
   </head>
   <body class="bg-[#0a0a0a] text-[#cccccc] min-h-screen font-mono">
     <Header activeNav={activeNav} />
@@ -19,6 +34,9 @@ const { image, title = SITE_TITLE, description = SITE_DESCRIPTION, activeNav } =
       <slot />
     </main>
     <Footer />
-    <Analytics />
+    <script>
+      import { inject } from "@vercel/analytics";
+      inject();
+    </script>
   </body>
 </html>

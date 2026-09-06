@@ -1,71 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const professional = [
-  {
-    title: "Fleetenable",
-    desc: "Fleet management platform. Currently building Able — the AI engine powering fleet intelligence and automation.",
-    url: "https://fleetenable.com/",
-    badge: "ONGOING",
-  },
-  {
-    title: "PGT Services",
-    desc: "Built the platform from foundation — load board, rating, BOL generation.",
-    url: "https://www.pgt-services.com/",
-  },
-  {
-    title: "Uber Freight × Transplace",
-    desc: "Logistics solutions for managing supply chain and transportation.",
-    url: "https://www.uberfreight.com/",
-  },
-  {
-    title: "Becker Logistics",
-    desc: "Rating engine that streamlines pricing team's rating and bidding workflows.",
-    url: "https://www.beckerlogistics.com/",
-  },
-  {
-    title: "Blended Sense",
-    desc: "Media production platform for brands and agencies to create content at scale.",
-    url: "https://www.blendedsense.com/",
-  },
-  {
-    title: "Leverage",
-    desc: "Automated end-to-end supply chain visibility across purchase orders, shipments, and inventory.",
-    url: "https://www.tryleverage.ai/",
-  },
-];
-
-const personal = [
-  {
-    title: "Sparkly",
-    desc: "Your Chrome new tab, finally at full power. Universal search across tabs, history, and the web. Google Workspace integration, tab manager, dev news feed, launchpad — all in one free extension.",
-    url: "https://sparklytab.dev",
-    badge: "FEATURED",
-  },
-  {
-    title: "Packify",
-    desc: "3D container load planner and visualizer for the bin packing problem. Hackathon winner.",
-    url: "https://github.com/varaprasadh/Packify",
-  },
-  {
-    title: "AlienBook",
-    desc: "An enhanced social media platform.",
-    url: "https://github.com/varaprasadh/Alienbook",
-  },
-  {
-    title: "Chain Reaction 3D",
-    desc: "3D version of Chain Reaction game using BFS algorithm and Three.js.",
-    url: "https://github.com/varaprasadh/ChainReaction-web-algorithm",
-  },
-];
+import { PROFESSIONAL_PROJECTS, PERSONAL_PROJECTS } from "../config";
 ---
 
 <BaseLayout title="Projects — varaprasadh.dev" activeNav="projects">
+  <h1 class="sr-only">Projects</h1>
   <p class="text-[#4ade80] text-xs mb-8">$ ls ~/projects</p>
 
   <section class="mb-12">
-    <h2 class="text-xs text-[#555555] uppercase tracking-widest mb-6">professional</h2>
-    {professional.map(p => (
+    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">professional</h2>
+    {PROFESSIONAL_PROJECTS.map(p => (
       <a
         href={p.url}
         target="_blank"
@@ -82,17 +26,17 @@ const personal = [
                 </span>
               )}
             </div>
-            <p class="text-xs text-[#555555]">{p.desc}</p>
+            <p class="text-xs text-terminal-muted">{p.desc}</p>
           </div>
-          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
         </div>
       </a>
     ))}
   </section>
 
   <section>
-    <h2 class="text-xs text-[#555555] uppercase tracking-widest mb-6">personal</h2>
-    {personal.map(p => (
+    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">personal</h2>
+    {PERSONAL_PROJECTS.map(p => (
       <a
         href={p.url}
         target="_blank"
@@ -108,11 +52,10 @@ const personal = [
                   {p.badge}
                 </span>
               )}
-
             </div>
-            <p class="text-xs text-[#555555]">{p.desc}</p>
+            <p class="text-xs text-terminal-muted">{p.desc}</p>
           </div>
-          <span class="text-[#333333] group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
+          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
         </div>
       </a>
     ))}
@@ -122,7 +65,7 @@ const personal = [
         href="https://github.com/varaprasadh"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-xs text-[#555555] hover:text-[#4ade80] transition-colors"
+        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors"
       >
         → more on github
       </a>
