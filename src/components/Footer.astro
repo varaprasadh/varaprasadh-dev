@@ -3,20 +3,20 @@ import { SOCIAL_LINKS } from "../config";
 const today = new Date();
 ---
 
-<footer class="max-w-3xl mx-auto px-6 py-12 border-t border-[#1a1a1a] mt-16">
+<footer class="max-w-5xl mx-auto px-6 py-12 border-t border-line mt-8">
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-    <span class="text-terminal-muted text-xs">
-      &copy; {today.getFullYear()} varaprasadh.dev
+    <span class="text-mist text-sm">
+      &copy; {today.getFullYear()} Varaprasadh Alajangi
     </span>
-    <div class="flex items-center gap-5">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">
-        github
+    <div class="flex items-center gap-6">
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+        GitHub
       </a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">
-        x/twitter
+      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+        X
       </a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">
-        linkedin
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay text-sm">
+        LinkedIn
       </a>
     </div>
   </div>

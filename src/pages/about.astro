@@ -30,107 +30,97 @@ const experience = [
 ];
 
 const skills = [
-  "NodeJS", "React", "React Native", "VueJS", "NextJS",
+  "Node.js", "React", "React Native", "Vue", "Next.js",
   "Spring Boot", "Python", "PostgreSQL", "MongoDB",
   "Google Cloud", "Docker", "CI/CD", "Electron",
-  "Browser Extensions", "Astro", "Linux", "Git", "AI toolkits",
+  "Browser extensions", "Astro", "Linux", "Git", "AI toolkits",
 ];
 ---
 
 <BaseLayout title="About — varaprasadh.dev" activeNav="about">
-  <h1 class="sr-only">About</h1>
-  <p class="text-[#4ade80] text-xs mb-8">$ cat ~/about.md</p>
+  <h1 class="text-4xl text-ink mb-8">About</h1>
 
-  <section class="mb-12">
-    <p class="text-sm text-[#aaaaaa] leading-relaxed max-w-xl">
-      this is varaprasadh — <span class="text-[#e8e8e8]">vara</span> in short.
-      been coding since college. built web apps, mobile apps, browser extensions, and tools.
-      comfortable across the full software lifecycle — from UI/UX design to cloud deployment.
-      currently working as an associate software architect at
-      <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">imaginnovate</a>,
-      building <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">fleetenable</a> — currently working on Able, its AI engine.
+  <section class="mb-16">
+    <p class="text-lg text-ink leading-relaxed mb-4">
+      I'm Varaprasadh — Vara, for short. I have been coding since college: web apps, mobile apps, browser extensions, and tools.
+    </p>
+    <p class="text-lg text-mist leading-relaxed">
+      I work across the full lifecycle, from interface design to cloud deployment. Right now I am an associate software architect at
+      <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Imaginnovate</a>,
+      building
+      <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Fleetenable</a>
+      — specifically Able, its AI engine.
     </p>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">experience</h2>
-    <div class="space-y-6">
+  <section class="mb-16">
+    <h2 class="text-2xl text-ink mb-8">Experience</h2>
+    <ol class="space-y-8">
       {experience.map(e => (
-        <div class="grid grid-cols-[5rem_1fr] gap-4">
-          <span class="text-[10px] text-terminal-muted pt-0.5 whitespace-nowrap">{e.period}</span>
+        <li class="grid grid-cols-[6.5rem_1fr] gap-4">
+          <span class="text-sm text-mist pt-1">{e.period}</span>
           <div>
-            <p class="text-sm text-[#e8e8e8] mb-0.5">{e.title}</p>
-            <p class="text-xs text-[#4ade80] mb-1">{e.company}</p>
-            <p class="text-xs text-terminal-muted leading-relaxed">{e.desc}</p>
+            <p class="font-serif text-lg text-ink">{e.title}</p>
+            <p class="text-bay text-sm mb-1">{e.company}</p>
+            <p class="text-mist leading-relaxed">{e.desc}</p>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">skills</h2>
-    <p class="text-xs text-terminal-muted leading-relaxed">
-      {skills.join(' · ')}
+  <section class="mb-16">
+    <h2 class="text-2xl text-ink mb-6">Skills</h2>
+    <p class="text-mist leading-relaxed">
+      {skills.join(', ')}
     </p>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">certifications</h2>
-    <div class="space-y-3">
-      <div>
+  <section class="mb-16">
+    <h2 class="text-2xl text-ink mb-6">Certifications</h2>
+    <ul class="space-y-3">
+      <li>
         <a
           href="https://www.credly.com/badges/8be11753-a2f8-4483-8c1d-7dc36de93a2e"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm text-[#e8e8e8] hover:text-[#4ade80] transition-colors"
+          class="text-bay hover:underline underline-offset-4"
         >
-          Professional Google Cloud Architect →
+          Professional Google Cloud Architect
         </a>
-      </div>
-      <div>
-        <span class="text-sm text-terminal-muted">
-          Professional Google Cloud Developer <span class="text-[10px] border border-[#333333] text-terminal-muted px-1 py-0.5 uppercase tracking-wider">expired</span>
-        </span>
-      </div>
-    </div>
+      </li>
+      <li class="text-mist">
+        Professional Google Cloud Developer <span class="text-sm">(expired)</span>
+      </li>
+    </ul>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">education</h2>
-    <div class="space-y-6">
-      <div class="grid grid-cols-[5rem_1fr] gap-4">
-        <span class="text-[10px] text-terminal-muted pt-0.5">2017–2020</span>
+  <section class="mb-16">
+    <h2 class="text-2xl text-ink mb-8">Education</h2>
+    <ol class="space-y-8">
+      <li class="grid grid-cols-[6.5rem_1fr] gap-4">
+        <span class="text-sm text-mist pt-1">2017–2020</span>
         <div>
-          <p class="text-sm text-[#e8e8e8] mb-0.5">B.S. Computer Science Engineering</p>
-          <p class="text-xs text-terminal-muted">ANITS, Vizag, India</p>
+          <p class="font-serif text-lg text-ink">B.S. Computer Science Engineering</p>
+          <p class="text-mist">ANITS, Vizag, India</p>
         </div>
-      </div>
-      <div class="grid grid-cols-[5rem_1fr] gap-4">
-        <span class="text-[10px] text-terminal-muted pt-0.5">2014–2017</span>
+      </li>
+      <li class="grid grid-cols-[6.5rem_1fr] gap-4">
+        <span class="text-sm text-mist pt-1">2014–2017</span>
         <div>
-          <p class="text-sm text-[#e8e8e8] mb-0.5">Diploma in Mechanical Engineering</p>
-          <p class="text-xs text-terminal-muted">GPT, Srikakulam, India</p>
+          <p class="font-serif text-lg text-ink">Diploma in Mechanical Engineering</p>
+          <p class="text-mist">GPT, Srikakulam, India</p>
         </div>
-      </div>
-    </div>
+      </li>
+    </ol>
   </section>
 
   <section>
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">connect</h2>
+    <h2 class="text-2xl text-ink mb-6">Connect</h2>
     <div class="flex items-center gap-6">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        github →
-      </a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        x/twitter →
-      </a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        linkedin →
-      </a>
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">GitHub</a>
+      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">X</a>
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">LinkedIn</a>
     </div>
   </section>
 </BaseLayout>

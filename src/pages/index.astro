@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import WorkList from "../components/WorkList.astro";
 import { getCollection } from "astro:content";
 import { SOCIAL_LINKS, PROFESSIONAL_PROJECTS } from "../config";
 import { formatDate } from "../lib/dates";
@@ -11,122 +12,64 @@ const last_posts = posts.slice(0, 3);
 const projects = PROFESSIONAL_PROJECTS.slice(0, 3);
 ---
 
-<BaseLayout>
-  <section class="mb-16">
-    <p class="text-[#4ade80] text-xs mb-4">$ whoami</p>
-    <h1 class="text-2xl sm:text-3xl font-bold text-[#e8e8e8] mb-2 cursor">
-      varaprasadh alajangi
+<BaseLayout wide>
+  <section class="max-w-2xl">
+    <h1 class="text-4xl sm:text-5xl text-ink mb-6">
+      Varaprasadh Alajangi
     </h1>
-    <p class="text-sm text-[#888888] mb-6">
-      associate software architect · vizag, india
+    <p class="text-xl text-mist leading-relaxed mb-6">
+      Associate software architect in Vizag. I design and ship logistics systems, from the interface down to the cloud.
     </p>
-    <p class="text-sm text-[#aaaaaa] leading-relaxed max-w-xl mb-8">
-      building enterprise systems from design to deployment.
-      currently building <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">fleetenable</a> at <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-[#4ade80] hover:underline">imaginnovate</a>.
-      full-stack engineer with a focus on logistics, supply chain, and scalable platforms.
+    <p class="text-lg text-ink/90 leading-relaxed mb-10">
+      These days I am building Able, the AI engine inside
+      <a href="https://fleetenable.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Fleetenable</a>,
+      at
+      <a href="https://www.imaginnovate.com/" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">Imaginnovate</a>.
     </p>
-
-    <div class="flex items-center gap-6">
-      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        github
-      </a>
-      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        x/twitter
-      </a>
-      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        linkedin
-      </a>
+    <div class="flex items-center gap-6 text-sm">
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">GitHub</a>
+      <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">X</a>
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" class="text-mist hover:text-bay">LinkedIn</a>
     </div>
   </section>
 
-  <section class="mb-16">
-    <div class="flex items-center gap-3 mb-6">
-      <span class="text-[#4ade80] text-xs">~/projects</span>
-      <div class="flex-1 border-t border-[#1a1a1a]"></div>
-      <a href="/projects" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">see all →</a>
-    </div>
-
-    {projects.map(p => (
-      <a
-        href={p.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-3 mb-1">
-              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
-              {p.badge && (
-                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
-                  {p.badge}
-                </span>
-              )}
-            </div>
-            <p class="text-xs text-terminal-muted">{p.desc}</p>
-          </div>
-          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
-        </div>
-      </a>
-    ))}
-  </section>
-
-  <section class="mb-16">
-    <div class="flex items-center gap-3 mb-6">
-      <span class="text-[#4ade80] text-xs">~/personal</span>
-      <div class="flex-1 border-t border-[#1a1a1a]"></div>
-    </div>
-    <a
-      href="https://sparklytab.dev"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group block border border-[#1e1e1e] hover:border-[#4ade80] p-5 transition-colors"
-    >
-      <div class="flex items-start justify-between gap-4 mb-3">
-        <div class="flex items-center gap-3">
-          <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors font-bold">Sparkly</span>
-          <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">FEATURED</span>
-        </div>
-        <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0">→</span>
+  <section class="grid md:grid-cols-2 gap-16 md:gap-20 mt-24">
+    <div>
+      <div class="flex items-baseline justify-between mb-2">
+        <h2 class="text-2xl text-ink">Work</h2>
+        <a href="/projects" class="text-sm text-mist hover:text-bay">All work</a>
       </div>
-      <p class="text-xs text-[#888888] leading-relaxed mb-4">
-        Your Chrome new tab, finally at full power. Universal search across tabs, history, and the web — plus Google Workspace integration, tab manager, dev news feed, and launchpad.
-      </p>
-      <div class="flex flex-wrap gap-2">
-        {["universal search", "tab manager", "google workspace", "feed hub", "launchpad"].map(f => (
-          <span class="text-[10px] text-terminal-muted border border-[#222222] px-2 py-0.5">{f}</span>
+      <WorkList items={projects} />
+    </div>
+
+    <div>
+      <div class="flex items-baseline justify-between mb-2">
+        <h2 class="text-2xl text-ink">Writing</h2>
+        <a href="/blog" class="text-sm text-mist hover:text-bay">All writing</a>
+      </div>
+      <ul>
+        {last_posts.map(post => (
+          <li class="border-t border-line first:border-t-0">
+            <a href={`/blog/${post.slug}`} class="group block py-5">
+              <p class="font-serif text-lg text-ink group-hover:text-bay">{post.data.title}</p>
+              <p class="mt-1 text-mist text-[0.95rem] leading-relaxed">{post.data.description}</p>
+              <time class="mt-2 block text-sm text-mist" datetime={post.data.pubDate.toISOString()}>
+                {formatDate(post.data.pubDate, "MMMM YYYY")}
+              </time>
+            </a>
+          </li>
         ))}
-      </div>
-    </a>
+      </ul>
+    </div>
   </section>
 
-  <section>
-    <div class="flex items-center gap-3 mb-6">
-      <span class="text-[#4ade80] text-xs">~/blog</span>
-      <div class="flex-1 border-t border-[#1a1a1a]"></div>
-      <a href="/blog" class="text-terminal-muted hover:text-[#4ade80] text-xs transition-colors">see all →</a>
-    </div>
-
-    {last_posts.map(post => (
-      <a
-        href={`/blog/${post.slug}`}
-        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <p class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors mb-1">
-              {post.data.title}
-            </p>
-            <p class="text-xs text-terminal-muted">{post.data.description}</p>
-          </div>
-          <span class="text-terminal-muted text-xs shrink-0 whitespace-nowrap mt-0.5">
-            {formatDate(post.data.pubDate, "MMM YYYY")}
-          </span>
-        </div>
-      </a>
-    ))}
+  <section class="mt-24 max-w-2xl">
+    <h2 class="text-2xl text-ink mb-4">Sparkly</h2>
+    <p class="text-mist leading-relaxed mb-3">
+      A Chrome new tab with universal search across tabs, history, and the web, plus Google Workspace, a tab manager, and a launchpad.
+    </p>
+    <a href="https://sparklytab.dev" target="_blank" rel="noopener noreferrer" class="text-bay hover:underline underline-offset-4">
+      sparklytab.dev
+    </a>
   </section>
 </BaseLayout>

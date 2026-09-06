@@ -16,34 +16,32 @@ const displayDate = formatDate(pubDate);
   activeNav="blog"
   ogType="article"
 >
-  <article class="max-w-2xl">
-    <div class="mb-8">
-      <a href="/blog" class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors">
-        ← back to blog
+  <article>
+    <p class="mb-10">
+      <a href="/blog" class="text-sm text-mist hover:text-bay">
+        Writing
       </a>
-    </div>
+    </p>
 
-    <header class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <time class="text-xs text-terminal-muted" datetime={pubDate.toISOString()}>{displayDate}</time>
-        {badge && (
-          <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
-            {badge}
-          </span>
-        )}
-      </div>
-      <h1 class="text-xl sm:text-2xl font-bold text-[#e8e8e8] leading-snug mb-3">
+    <header class="mb-12">
+      <p class="text-sm text-mist mb-4">
+        <time datetime={pubDate.toISOString()}>{displayDate}</time>
+        {badge && <span class="text-laterite"> · {badge}</span>}
+      </p>
+      <h1 class="text-3xl sm:text-4xl text-ink leading-tight mb-4">
         {title}
       </h1>
-      <p class="text-sm text-terminal-muted">{description}</p>
+      <p class="text-lg text-mist leading-relaxed">{description}</p>
       {updatedDate && (
-        <p class="text-xs text-terminal-muted mt-2">updated: {updatedDate}</p>
+        <p class="text-sm text-mist mt-3">Updated {updatedDate}</p>
       )}
     </header>
 
-    <hr class="border-t border-[#1a1a1a] mb-10" />
+    {heroImage && (
+      <img src={heroImage} alt="" class="w-full mb-12" />
+    )}
 
-    <div class="prose prose-terminal max-w-none text-sm leading-relaxed">
+    <div class="prose prose-read max-w-none">
       <slot />
     </div>
   </article>

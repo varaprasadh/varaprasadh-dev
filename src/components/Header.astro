@@ -2,25 +2,26 @@
 const { activeNav } = Astro.props;
 
 const navLinks = [
-  { href: '/projects', label: '~/projects', id: 'projects' },
-  { href: '/blog', label: '~/blog', id: 'blog' },
-  { href: '/about', label: '~/about', id: 'about' },
+  { href: '/projects', label: 'Work', id: 'projects' },
+  { href: '/blog', label: 'Writing', id: 'blog' },
+  { href: '/about', label: 'About', id: 'about' },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-[#0a0a0a] border-b border-[#1a1a1a]">
-  <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
-    <a href="/" class="text-[#4ade80] font-bold text-sm hover:opacity-80 transition-opacity">
-      varaprasadh.dev
+<header class="sticky top-0 z-50 bg-salt/90 backdrop-blur-sm border-b border-line">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-serif text-lg text-ink hover:text-bay">
+      Varaprasadh
     </a>
 
-    <nav class="hidden sm:flex items-center gap-6">
+    <nav class="hidden sm:flex items-center gap-8" aria-label="Primary">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class={`text-xs transition-colors hover:text-[#4ade80] ${
-            activeNav === link.id ? 'text-[#4ade80]' : 'text-terminal-muted'
+          class={`text-[0.95rem] hover:text-bay ${
+            activeNav === link.id ? 'text-ink' : 'text-mist'
           }`}
+          aria-current={activeNav === link.id ? 'page' : undefined}
         >
           {link.label}
         </a>
@@ -29,23 +30,24 @@ const navLinks = [
 
     <button
       id="menu-toggle"
-      class="sm:hidden text-terminal-muted hover:text-[#4ade80] transition-colors text-xs"
+      class="sm:hidden text-mist hover:text-ink"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
     >
-      [menu]
+      Menu
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-[#1a1a1a] bg-[#0a0a0a]">
-    <nav class="max-w-3xl mx-auto px-6 py-4 flex flex-col gap-4">
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-line bg-salt">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-3" aria-label="Mobile">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class={`text-sm transition-colors hover:text-[#4ade80] ${
-            activeNav === link.id ? 'text-[#4ade80]' : 'text-terminal-muted'
+          class={`text-lg font-serif hover:text-bay ${
+            activeNav === link.id ? 'text-ink' : 'text-mist'
           }`}
+          aria-current={activeNav === link.id ? 'page' : undefined}
         >
           {link.label}
         </a>
@@ -63,7 +65,7 @@ const navLinks = [
     menu?.classList.toggle('hidden', !open);
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    if (toggle) toggle.textContent = open ? '[close]' : '[menu]';
+    if (toggle) toggle.textContent = open ? 'Close' : 'Menu';
     if (open) firstLink?.focus();
     else toggle?.focus();
   }

@@ -1,74 +1,32 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import WorkList from "../components/WorkList.astro";
 import { PROFESSIONAL_PROJECTS, PERSONAL_PROJECTS } from "../config";
 ---
 
-<BaseLayout title="Projects — varaprasadh.dev" activeNav="projects">
-  <h1 class="sr-only">Projects</h1>
-  <p class="text-[#4ade80] text-xs mb-8">$ ls ~/projects</p>
+<BaseLayout title="Work — varaprasadh.dev" activeNav="projects">
+  <h1 class="text-4xl text-ink mb-4">Work</h1>
+  <p class="text-lg text-mist mb-16 max-w-xl leading-relaxed">
+    Logistics platforms, supply chain tools, and a few personal experiments.
+  </p>
 
-  <section class="mb-12">
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">professional</h2>
-    {PROFESSIONAL_PROJECTS.map(p => (
-      <a
-        href={p.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-3 mb-1">
-              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
-              {p.badge && (
-                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
-                  {p.badge}
-                </span>
-              )}
-            </div>
-            <p class="text-xs text-terminal-muted">{p.desc}</p>
-          </div>
-          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
-        </div>
-      </a>
-    ))}
+  <section class="mb-16">
+    <h2 class="text-2xl text-ink mb-2">Professional</h2>
+    <WorkList items={PROFESSIONAL_PROJECTS} />
   </section>
 
   <section>
-    <h2 class="text-xs text-terminal-muted uppercase tracking-widest mb-6">personal</h2>
-    {PERSONAL_PROJECTS.map(p => (
-      <a
-        href={p.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group block py-4 border-b border-[#1a1a1a] hover:border-[#2a2a2a] transition-colors"
-      >
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <div class="flex items-center gap-3 mb-1">
-              <span class="text-sm text-[#e8e8e8] group-hover:text-[#4ade80] transition-colors">{p.title}</span>
-              {p.badge && (
-                <span class="text-[10px] border border-[#4ade80] text-[#4ade80] px-1.5 py-0.5 uppercase tracking-wider leading-none">
-                  {p.badge}
-                </span>
-              )}
-            </div>
-            <p class="text-xs text-terminal-muted">{p.desc}</p>
-          </div>
-          <span class="text-terminal-muted group-hover:text-[#4ade80] transition-colors text-sm shrink-0 mt-0.5">→</span>
-        </div>
-      </a>
-    ))}
-
-    <div class="pt-8">
+    <h2 class="text-2xl text-ink mb-2">Personal</h2>
+    <WorkList items={PERSONAL_PROJECTS} />
+    <p class="pt-8">
       <a
         href="https://github.com/varaprasadh"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-xs text-terminal-muted hover:text-[#4ade80] transition-colors"
+        class="text-bay hover:underline underline-offset-4"
       >
-        → more on github
+        More on GitHub
       </a>
-    </div>
+    </p>
   </section>
 </BaseLayout>

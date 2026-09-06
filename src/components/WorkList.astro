@@ -1,0 +1,35 @@
+---
+import type { Project } from "../config";
+
+export interface Props {
+  items: Project[];
+}
+
+const { items } = Astro.props;
+
+function badgeLabel(badge?: string) {
+  if (!badge) return "";
+  return badge.charAt(0).toUpperCase() + badge.slice(1).toLowerCase();
+}
+---
+
+<ul>
+  {items.map((p) => (
+    <li class="border-t border-line first:border-t-0">
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group block py-5"
+      >
+        <p class="font-serif text-lg text-ink group-hover:text-bay">
+          {p.title}
+          {p.badge && (
+            <span class="ml-2 font-sans text-sm font-normal text-laterite">{badgeLabel(p.badge)}</span>
+          )}
+        </p>
+        <p class="mt-1 text-mist text-[0.95rem] leading-relaxed">{p.desc}</p>
+      </a>
+    </li>
+  ))}
+</ul>
